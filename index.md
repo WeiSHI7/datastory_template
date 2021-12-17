@@ -22,7 +22,7 @@ td {
 ## Introduction
 
 Quotations, the repetition of well-known statement parts, have preserved and inherited wisdoms and perspectives 
-that significantly changed the world. And we not only focus on the power of the words, but also the people who speaked 
+that significantly changed the world. And we not only focus on the power of the words, but also the people who speak 
 them. There are lots of famous quotations that we can instantly identify the speakers. However, we can find a large 
 number of quotations whose speakers are unidentifiable. We may never know their names, but is that possible to find 
 other more details about their profiles? 
@@ -44,26 +44,30 @@ relationships between different features, as well as tried to understand the mec
 
 ### Description
 
-Dataset provided to us is composed of six datafiles each one containg qutation data for one year from 2015 to 2020. In this dataset we had following fields: ``` quotation text, most probable author of the quote, date of publishing quotation, probabilities of quotation authors, links to the quotation source ```
+Dataset provided to us is composed of six data files each one containing quotation data for one year from 2015 to 2020. In this dataset we had following fields: ``` quotation text, most probable author of the quote, date of publishing quotation, probabilities of quotation authors, links to the quotation source ```
 
-Additionaly we were provided with parquet dataset, with data scrapped from Wikipedia, containing these encoded field: ``` date of birth, nationality, gender, ethnic_group, occupation, party, academic_degree, id, candidacy, religion ```
+Additionally we were provided with parquet dataset, with data scraped from Wikipedia, containing these encoded field: ``` date of birth, nationality, gender, ethnic_group, occupation, party, academic_degree, id, candidacy, religion ```
 
 
 To decode fields we used dataset with key value. Values have field name and short description.
 
+With the data and labels, we trained several models and verified the functionalities, then predicted the features of the 
+quotations that are not assigned speakers in Quotebank. Also, we did some analysis on the outcomes and explored the 
+relationships between different features, as well as tried to understand the mechanism of the prediction.
+
 ### Preparation
 
-We decided to start our data preparation with parsing quotation dataset with additial data from Wikipedia and decode all fields from shortucts to the full names. In dataset there were also multiple information about people having the same name but multiple Wikipedia pages. We decided to "explode" this records and save one row per Wikipedia page.
+We decided to start our data preparation with parsing quotation dataset with additional data from Wikipedia and decode all fields from shortucts to the full names. In dataset there were also multiple information about people having the same name but multiple Wikipedia pages. We decided to "explode" this records and save one row per Wikipedia page.
 
-We wrote our data in parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or rows which will meet desired conditions. Also there is possiblity to connect in the feautre with big data engins as for example Spark.
+We wrote our data in parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or rows which will meet desired conditions. Also there is possibility to connect in the feautre with big data engines as for example Spark.
 
-Therfore by parsing batch by batch we obtained new dataset containing 214M rows saved in parquet data folder.
+Therefore by parsing batch by batch we obtained new dataset containing 214M rows saved in parquet data folder.
 
 ## Data analysis
 
-Before appling model to predict labels, for each label we created train, validation and test datasets. In these datasets there are records that have known speakers and known label which we will predict in the feature.
+Before applying model to predict labels, for each label we created train, validation and test datasets. In these datasets there are records that have known speakers and known label which we will predict in the feature.
 
-Before appling model to predict labels we wanted to choose only labels which might be applicable to almost all people. In the result we choose date of birth, nationality, gender, ethnic group, religion and occupation.
+Before applying model to predict labels we wanted to choose only labels which might be applicable to almost all people. In the result we choose date of birth, nationality, gender, ethnic group, religion and occupation.
 
 To simplify our tasks, and obtain better model predictions, in each feature we are taking the few most popular classes as seen in the table below.
 
@@ -88,16 +92,18 @@ To simplify our tasks, and obtain better model predictions, in each feature we a
     </tr>
 </table>
 
-The date of birth which is continous variable we descretize into new clases in dacade sized buckets from 1930s to 1990s and having one more class for others.
+The date of birth which is continuous variable we discretized into new classes in dacade sized buckets from 1930s to 1990s and having one more class for others.
 
-For occupation we marged jobs in the same field as for example we marged basball player, hokey player and others into new class sportsman. 
+For occupation we merged jobs in the same field as for example we merged baseball player, hockey player and others into new class sportsman. 
 
-In nationality we marged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
+In nationality we merged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
 
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
-We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
+We see  our features our classes are unbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced distribution.
+
+**Remark** : we did our graph interactive.For  more information, please hover the cursor over the part you are interested in.
 
 ## Deep Learning Model
 
@@ -108,7 +114,7 @@ We see  our features our classes are inbalanced which might lead to biased predi
 
 ## Experiment
 
-We traned 6 models with the same architecture to predict 6 different features. For each feature we used a separate dataset which consisted of 3 columns: ``` qouteID, quotation, feature_name```. Each dataset was split into train, validation and test sets. The plots show the training history of model for ``` date_of_birth``` prediction.
+We trained 6 models with the same architecture to predict 6 different features. For each feature we used a separate dataset which consisted of 3 columns: ``` qouteID, quotation, feature_name```. Each dataset was split into train, validation and test sets. The plots show the training history of model for ``` date_of_birth``` prediction.
 <img src="plots/loss_acc.jpg" /> 
 We can see that both train and test losses go down as well as accuracy goes up until the 7th epoch. It means that seven epochs is enough for the training process and after it network starts overfitting. 
 
@@ -118,7 +124,7 @@ We can see that both train and test losses go down as well as accuracy goes up u
 <!-- Wei describes our results and asking question about correletions in the confusion matrix and why some classes prediciting much more better then others.
 Here he will use confusion matrix plots and roc curves plots -->
 
-After the experiment with the six datasets (i.e., quotations labelled with ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```), we recorded the train & test accuracies, and also generated ROC curves and Confusion Matrixes for the further analysis. And during the analysis, we found some very interesting phenomenons. Below are the table of the accuracy of the features:
+After the experiment with the six datasets (i.e., quotations labelled with ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```), we recorded the train & test accuracies, and also generated ROC curves and Confusion Matrixes for the further analysis. And during the analysis, we found some very interesting phenomenon. Below are the table of the accuracy of the features:
 
 <table>
 <tr>
@@ -155,14 +161,14 @@ Below are the Confusion Matrix and ROC-AUC curves of testing with ```Ethnic Grou
 The **color** of the right side colum represents the **number of samples**
 ![all_ethnic](plots/all_ethnic.png){: .mx-auto.d-block :}
 
-As we can see from the Confusion Matrix and ROC-AUC curves, the **Gujarati people** and **Italian Argentines** get the highest true positive rate and accuracy. However, the sample numbers of them are not as much as African Americans, why it is easier for the model to indentify **Gujarati people** and **Italian Argentines** with less samples for training?
 
+As we can see from the Confusion Matrix and ROC-AUC curves, the **Gujarati people** and **Italian Argentines** get the highest true positive rate and accuracy. However, the sample numbers of them are not as much as African Americans, why it is easier for the model to identify **Gujarati people** and **Italian Argentines** with less samples for training?
 
 Below are the Confusion Matrix and ROC curves of testing with ```Date of Birth```:
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in **1990s** gets the highest true positive rate and accuracy. Also, as shown in the **7th rows** of the Matrix, most of people born in **1980s** are indentified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in **1990s** gets the highest true positive rate and accuracy. Also, as shown in the **7th row** of the Matrix, most of people born in **1980s** are identified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
 
 As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
 
@@ -192,8 +198,8 @@ We found out that our model distinguishes both men and women with the same accur
 </div>
 
 Female are mostly reviewing and writing about style.
-On the other hand man are more cited in areas of sport and Europe. This may lead to conlusion that different specialistic word help our model to predict better.
-We assume especially for sports and style that they have specialistic topics which differ from others and therefore it might main factor allowng model to distinguish between these two classes.
+On the other hand man are more cited in areas of sport and Europe. This may lead to conclusion that different specialistic word help our model to predict better.
+We assume especially for sports and style that they have specialist topics which differ from others and therefore it might main factor allowng model to distinguish between these two classes.
 
 #### Date of birth
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
@@ -205,10 +211,9 @@ We assume especially for sports and style that they have specialistic topics whi
 
 Plotting topics mentioned by people born in 1990s (which are also authors of this post) and others give us some intersting insides about what people in there 20s talk the most. 
 
-From topic distribution we see that these people are no interested in politics, sytuation in Europe, USA or local region. They are more into sports, music, olimpic and style.
-This might be also due to fact that to enter politcs you need time and experience. Also for example avarage age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
-On the other hand peak performace for sportmans are in their 20s and 30s so it is understable that this is the topic where they are the most respected.
-
+From topic distribution we see that these people are no interested in politics, situation in Europe, USA or local region. They are more into sports, music, olympic and style.
+This might be also due to fact that to enter politics you need time and experience. Also for example average age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
+On the other hand peak performance for sportmans are in their 20s and 30s so it is understable that this is the topic where they are the most respected.
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
@@ -216,17 +221,24 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
     <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png"  /> 
   </div>
 </div>
+Topics distribution per year supports our conclusion about differences of topics in regard to year of birth. 
+Interesting anomalies are big peak in politics for people born in 1940s and smaller values but still distinguishable for people  born in 50s and 60s.
+From further analysis we discovered that peak in 40s is made by Donald Trump which was mostly cited in our dataset. 
+Other values for politics in 50s and 60s just supports fact that most politicians in the USA are around 60 years old. 
+
+A little bit different observation is amount of obituaries for people born in 1930s. These people at the time os publishing the quotes are between 75 and 90 years old. Although life expentancy is a little bit less then that, we thing that popularity is caused by fact that these people are still almost as popular in politics as people born in 70s. 
+And for politicians when they are active publically it is more probable to by cited by newspapers than normal ones.
 
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=900 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=410 width=445 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=410 width=445 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=890 frameborder="0" scrolling="no"> </iframe>
   </div>
 </div>
 
-Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better then others.
+Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better than others.
 
 Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
 
