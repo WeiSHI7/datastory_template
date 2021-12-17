@@ -233,6 +233,9 @@ And for politicians when they are active publically it is more probable to by ci
 Contrarily, the **Italian Argentines** talk mostly about Europe, which is not that different than topics in which other ethincs groups talk. In this case, there might be other factors that has more strong influence to the predictions.
 
 #### Year of publication
+
+We were also interested to know how the topic percentage was developing over the years.
+
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
     <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" class="center" width=800  /> 
@@ -244,7 +247,7 @@ From the plot, we see that from 2017 the newspapers started to publish more news
 ## Conclusion
 
 
-In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. To our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that certain features would share the same quotations. This could explain why our deep learning model would work like above. And of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
+In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. To our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that certain features would share the same quotations. This could explain why our deep learning model would work like above. And, of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
 
 
 ## Reference
