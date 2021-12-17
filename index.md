@@ -94,8 +94,9 @@ We merged ```nationality``` by continents into five classes. In other labels we 
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
+
+<img src="plots/distribution_plots/gender/gender_proportion.png" height=410 width=80 /> 
 <img src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.png" height=410 width=445 /> 
-<img src="plots/distribution_plots/gender/gender_proportion.png" height=410 width=80 />  
 
 It seen from the plots that our labels are very imbalanced (here we show only two examples but all the labels are imbalanced). It might lead to biased prediction towards the most popular class. To overcome this issue, we downsample the major classes.
 
@@ -112,15 +113,12 @@ To use DistilBERT model for the classification task we collected text embeddings
 
 We trained six models with the same architecture to predict six different features. For each feature we used a separate dataset which consistes of 3 columns: ``` qouteID, quotation, feature_name```. Each dataset was split into train, validation and test sets. The plots show the training history of model for ``` date_of_birth``` prediction.
 <img src="plots/loss_acc.jpg" /> 
-We can see that both train and test losses go down as well as accuracy goes up until the 7th epoch. It means that seven epochs is enough for the training process and after it network starts overfitting. 
+We can see that both train and test losses go down as well as accuracy goes up until the seventh epoch. Then test loss and accuracy become stable. It means that seven epochs is enough for the training process and after it network starts overfitting. 
 
 
 ## Results and Analytics
 
-<!-- Wei describes our results and asking question about correletions in the confusion matrix and why some classes prediciting much more better then others.
-Here he will use confusion matrix plots and roc curves plots -->
-
-After the experiment with the six datasets (i.e., quotations labelled with ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```), we recorded the train & test accuracies, and also generated ROC curves and Confusion Matrixes for the further analysis. And during the analysis, we found some very interesting phenomenon. Below are the table of the accuracy of the features:
+After the experiment with the six datasets (i.e., quotations labelled with ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```), we recorded the train and test accuracies, and also generated ROC curves and Confusion Matrices for the further analysis. Below are the table of the accuracies for each feature:
 
 <table>
 <tr>
@@ -152,7 +150,7 @@ After the experiment with the six datasets (i.e., quotations labelled with ```Ge
     </tr>
 </table>
 
-Below are the Confusion Matrix and ROC-AUC curves of testing with ```Ethnic Group```:
+During the analysis, we found some very interesting phenomenon. Below are the Confusion Matrix and ROC-AUC curves of testing with ```Ethnic Group```:
 
 The **color** of the right side colum represents the **number of samples**
 ![all_ethnic](plots/all_ethnic.png){: .mx-auto.d-block :}
