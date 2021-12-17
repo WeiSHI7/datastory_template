@@ -95,8 +95,8 @@ For occupation we marged jobs in the same field as for example we marged basball
 In nationality we marged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
 
 ### Dealing with class imbalance
-<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=445 width=445  align="right"> </iframe>
-<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=445 width=445  align="right"> </iframe>
+<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=445 width=445  align="right" frameborder="0"> </iframe>
+<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=445 width=445  align="right" frameborder="0"> </iframe>
 
 
 
