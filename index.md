@@ -150,15 +150,15 @@ After the experiment with the six datasets (i.e., quotations labelled with ```Ge
     </tr>
 </table>
 
-During the analysis, we found some very interesting phenomenon. Below are the Confusion Matrix and ROC-AUC curves of testing with ```Ethnic Group```:
+Below are the Confusion Matrix and ROC-AUC curves of testing with ```Ethnic Group```:
 
 The **color** of the right side colum represents the **number of samples**
 ![all_ethnic](plots/all_ethnic.png){: .mx-auto.d-block :}
 
 
-As we can see from the Confusion Matrix and ROC-AUC curves, the **Gujarati people** and **Italian Argentines** get the highest true positive rate and accuracy. However, the sample numbers of them are not as much as African Americans, why it is easier for the model to identify **Gujarati people** and **Italian Argentines** with less samples for training?
+During the analysis, we found some very interesting phenomenon. As we can see from the confusion matrix and ROC curves, the **Gujarati people** and **Italian Argentines** get the highest true positive rate and accuracy. However, the sample numbers of them are not as much as **African Americans**. Why is it easier for the model to identify **Gujarati people** and **Italian Argentines** with less samples for training?
 
-Below are the Confusion Matrix and ROC curves of testing with ```Date of Birth```:
+Below are the confusion matrix and ROC curves of testing with ```Date of Birth```:
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
