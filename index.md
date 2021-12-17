@@ -102,7 +102,8 @@ bla
 
 bla
 
-bla
+We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution while keeping the same class distributions in the dataset.
+
 
 bla
 
@@ -204,6 +205,9 @@ We found out that our model distinguishes both men and women with the same accur
   </div>
 </div>
 
+From plot we might see that women and men are mostly cited in different topics. As politics is main topic for both of them other proporstions differ in regard to gender. 
+
+Female are mostly reviewing and writing about style. On the other hand man are more cited in areas of sport and Europe. This may lead to conlusion that different specialistic word help our model to predict better. We assume especially sports and style have specialistic topics which differ from others and therefore it might main factor allowng model to distinguish these two classes.
 
 
 
@@ -214,6 +218,8 @@ We found out that our model distinguishes both men and women with the same accur
     <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=410 width=450 frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
+
+
 
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
