@@ -50,19 +50,19 @@ To decode fields in the QuoteBank dataset we used descriptions matched by key va
 
 ### Preparation
 
-We decided to start our data preparation with parsing quotation dataset with additional data from Wikipedia and decode all fields from shortucts to the full names. In dataset there were also multiple information about people having the same name but multiple Wikipedia pages. We decided to "explode" this records and save one row per Wikipedia page.
+We started our data preparation with matching the quotation dataset and data from Wikipedia. After, we decoded all fields from shortcuts to the full names. In the final dataset, there were people with popular names, for such people there were different pages on Wikipedia. For such cases it was impossible to determine the correct values of person's parameters. Therefore, we decided to exclude such cases from our dataset and removed all these people with their quotes. Thus, we were able to unambiguously correlate the values of features with people.
 
-We wrote our data in parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or rows which will meet desired conditions. Also there is possibility to connect in the feautre with big data engines as for example Spark.
+We wrote our data in the parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or rows which meets desired conditions. Also, it has a possibility to connect the dataset to big data engines, e.g. Spark.
 
-Therefore by parsing batch by batch we obtained new dataset containing 214M rows saved in parquet data folder.
+Therefore, parsing batch by batch we obtained a new dataset which contains 214M rows saved in parquet data type.
 
 ### Data analysis
 
-Before applying model to predict labels, for each label we created train, validation and test datasets. In these datasets there are records that have known speakers and known label which we will predict in the feature.
+Our main dataset contains two types of quotes: with a known author and an unknown one. Our goal is to predict labels for unknown authors of quotes, to this aim we split data of known authers into train, validation and test sets. Also, we hold out all unknown authers in one separate set to use them for the final predictions.
 
-Before applying model to predict labels we wanted to choose only labels which might be applicable to almost all people. In the result we choose date of birth, nationality, gender, ethnic group, religion and occupation.
+To choose only labels which might be applicable to all people we exclude ```party, academic_degree, candidacy``` labels. In the result, we keep only ```date of birth, nationality, gender, ethnic group, religion and occupation```.
 
-To simplify our tasks, and obtain better model predictions, in each feature we are taking the few most popular classes as seen in the table below.
+To simplify our tasks, and obtain better model predictions, in each feature we take the few most popular classes as seen in the table below.
 
 <table>
 <tr>
@@ -75,7 +75,7 @@ To simplify our tasks, and obtain better model predictions, in each feature we a
         <td>Religion</td>
     </tr>
     <tr>
-        <td><b>Class Num</b></td>
+        <td><b>Number of classes</b></td>
         <td>2</td>
         <td>10</td>
         <td>5</td>
@@ -85,29 +85,29 @@ To simplify our tasks, and obtain better model predictions, in each feature we a
     </tr>
 </table>
 
-The date of birth which is continuous variable we discretized into new classes in dacade sized buckets from 1930s to 1990s and having one more class for others.
+```date of birth``` which is continuous variable we discretized into new classes in decade sized buckets from 1930s to 1990s and having one more class for others.
 
-For occupation we merged jobs in the same field as for example we merged baseball player, hockey player and others into new class sportsman. 
+For ```occupation``` we merged jobs in the same field. For example, we merged baseball player, hockey player and others into new class sportsman. 
 
-In nationality we merged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
+We merged ```nationality``` by continents into five classes. In other labels we took nine most popular classes and other examples we put in "other" bin.
 
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
-We see  our features our classes are unbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced distribution.
-
-**Remark** : we did our graph interactive.For  more information, please hover the cursor over the part you are interested in.
+It seen from the plots that our labels are very imbalanced (here we show only two examples but all the labels are imbalanced). It might lead to biased prediction towards the most popular class. To overcome this issue, we downsample the major classes.
 
 ## Deep Learning Model
 
 <img align="right" src="assets/img/bertlogo.png" /> 
-  Our main goal is to predict features based on the quotations. For this purpose we needed to choose a language model that perform well for the classification problem and at the same time doesn't require a lot of computational resourses. Moreover, the task of classifying quotations is a quite complex task that requires a global understanding of the text from the model. Thus, we chose pretrained DistilBERT model for our predictions. BERT is an open source machine learning framework for natural language processing (NLP). It is designed to help computers understand the meaning of ambiguous language in text by using surrounding text to establish context. The BERT framework was pre-trained using text from Wikipedia and can be fine-tuned with question and answer datasets. DistilBERT is a small, fast, cheap and light Transformer model based on the BERT architecture. It has about half the total number of parameters of BERT base and retains 95% of BERT’s performances on the language understanding benchmark GLUE.
+Our main goal is to predict features based on the quotations. For this purpose we needed to choose a language model that perform well for the classification problem and at the same time does not require a lot of computational resourses. Moreover, the task of classifying quotations is a quite complex that requires a global understanding of the text from the model. 
   
-  To use DistilBERT model for the classification task we collected text embeddings from the 0 output and add a classification head. The output of the final model is a probability vector with the size equal to the amount of classes.
+One of the models that are capabale for this task is BERT. It is an open source machine learning framework for natural language processing (NLP). It is designed to help computers understand the meaning of ambiguous language in text by using surrounding text to establish context. The BERT framework was pre-trained using text from Wikipedia and can be fine-tuned with question and answer datasets. DistilBERT is a small, fast, cheap and light transformer model based on the BERT architecture. It has about half the total number of parameters of BERT base and retains 95% of BERT’s performances on the language understanding benchmark GLUE. Thus, we choose the pretrained DistilBERT model for our predictions.
+  
+To use DistilBERT model for the classification task we collected text embeddings from the zeroth output and add a classification head. The output of the final model is a probability vector with the size equal to the amount of classes.
 
-## Experiment
+## Experiments
 
-We trained 6 models with the same architecture to predict 6 different features. For each feature we used a separate dataset which consisted of 3 columns: ``` qouteID, quotation, feature_name```. Each dataset was split into train, validation and test sets. The plots show the training history of model for ``` date_of_birth``` prediction.
+We trained six models with the same architecture to predict six different features. For each feature we used a separate dataset which consistes of 3 columns: ``` qouteID, quotation, feature_name```. Each dataset was split into train, validation and test sets. The plots show the training history of model for ``` date_of_birth``` prediction.
 <img src="plots/loss_acc.jpg" /> 
 We can see that both train and test losses go down as well as accuracy goes up until the 7th epoch. It means that seven epochs is enough for the training process and after it network starts overfitting. 
 
@@ -182,6 +182,8 @@ As a result for every feature we collected dataset with quotes topics.
 #### Gender
 
 We found out that our model distinguishes both men and women with the same accuracy. For further analysis, we decided to draw a distribution of topics for each gender.
+
+**Remark** : we make our plots interactive. For more information, please hover the cursor over the part you are interested in.
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
