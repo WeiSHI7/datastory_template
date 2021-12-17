@@ -11,7 +11,9 @@ html {
 }
 
 body {
-  margin: 2rem 16rem 0rem 16rem; 
+  /* margin: 2rem 16rem 0rem 16rem; */
+  width: 960px;
+  margin: auto 
   /* max-width: 80%; */
   /* margin: 0rem -10rem 0rem -10rem; */
   /* width:80%; */
