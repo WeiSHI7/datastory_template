@@ -242,3 +242,12 @@ Contrarily the Italian Argentines talk mostyl about europe, which is not that di
 
 
 In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. For our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that some features would share the same quotations. This could explain why our deep learning model would work like above. And of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
+
+
+## Reference
+
+[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+
+[DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.org/abs/1910.01108)
+
+[Quotebank: A Corpus of Quotations from a Decade of News](https://dl.acm.org/doi/10.1145/3437963.3441760)

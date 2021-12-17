@@ -60,6 +60,10 @@ layout: base
         </div>
       {% endif %}
 
+      {% if page.extraText %}
+          <p>{{ page.extraText }}</p>
+      {% endif %}
+
       {% if page.social-share %}
         {% include social-share.html %}
       {% endif %}
