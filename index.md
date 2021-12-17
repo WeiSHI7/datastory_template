@@ -217,6 +217,14 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
   </div>
 </div>
 
+Topics distribution per year supports our conclusion about differances of topics in regard to yea of birth. 
+Interesting anomalies are big peak in politics for people born in 1940s and smaller values but still distinguishable for people  born in 50s and 60s.
+From ferther analysis we discovered that peak in 40s is made by Donald Trump which was mostly cited in our dataset. 
+Other values for politics in 50s and 60s just supports fact that most politicians in the USA are around 60 years old. 
+
+A little bit different observation is amout of obituaries for people born in 1930s. These people at the time os publishing the quotes are between 75 and 90 years old. Although life expentancy is a little bit less then that, we thing that popularity is caused by fact that these people are still almost as popular in politics as people born in 70s. 
+And for politicions when they are active publically it is more probable to by cited by news papers than normal ones.
+
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
