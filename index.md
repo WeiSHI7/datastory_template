@@ -209,7 +209,6 @@ On the other hand, peak performance of sportmen is in their 20s and 30s and it i
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
     <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" class="center" width=800  /> 
-    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" class="center" width=800  /> 
   </div>
 </div>
 Topics distribution per year supports our conclusion about differences of topics in regard to year of birth. 
@@ -217,7 +216,7 @@ Interesting anomalies are big peak in politics for people born in 1940s and smal
 From further analysis we discovered that peak in 40s is made by Donald Trump which was mostly cited in our dataset. 
 Other values for politics in 50s and 60s just supports fact that most politicians in the USA are around 60 years old. 
 
-A little bit different observation is amount of obituaries for people born in 1930s. These people at the time os publishing the quotes are between 75 and 90 years old. Although life expentancy is a little bit less then that, we thing that popularity is caused by fact that these people are still almost as popular in politics as people born in 70s. 
+A little bit different observation is amount of obituaries for people born in 1930s. These people at the time of publishing the quotes are between 75 and 90 years old. Although, life expentancy is a little bit less then that, we think that popularity is caused by fact that these people are still almost as popular in politics as people born in 70s. 
 And for politicians when they are active publically it is more probable to by cited by newspapers than normal ones.
 
 #### Ethnic group
@@ -229,9 +228,9 @@ And for politicians when they are active publically it is more probable to by ci
   </div>
 </div>
 
-Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better than others.
+**Gujarati** people talk mostly about Asia and not that much about other topics. In this quotes, there are many distinguishable names such as names of the people or cities. This might be the clue why our model predicts them better than others.
 
-Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
+Contrarily, the **Italian Argentines** talk mostly about Europe, which is not that different than topics in which other ethincs groups talk. In this case, there might be other factors that has more strong influence to the predictions.
 
 #### Year of publication
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
@@ -240,10 +239,12 @@ Contrarily the Italian Argentines talk mostyl about europe, which is not that di
   </div>
 </div>
 
+From the plot, we see that from 2017 the newspapers started to publish more news on the topic of politics. It started alongside time when Donald Trump became the president of the USA. From the information that he is one of the most popular speaker in our dataset, we conclude that he started to publish a lot of information in newspapers which became viral.
+
 ## Conclusion
 
 
-In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. For our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that some features would share the same quotations. This could explain why our deep learning model would work like above. And of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
+In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. To our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that certain features would share the same quotations. This could explain why our deep learning model would work like above. And of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
 
 
 ## Reference
