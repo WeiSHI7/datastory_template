@@ -97,7 +97,12 @@ In nationality we marged by continents and in other labels we took the 9 most po
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  align="right" frameborder="0"> </iframe>
 We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
-
+bla
+bla
+bla
+bla
+bla
+bla
 
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
 
