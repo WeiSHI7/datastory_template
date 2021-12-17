@@ -92,11 +92,9 @@ For ```occupation``` we merged jobs in the same field. For example, we merged ba
 We merged ```nationality``` by continents into five classes. In other labels we took nine most popular classes and other examples we put in "other" bin.
 
 ### Dealing with class imbalance
-<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
-<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
 
-<!-- <img src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.png" height=410 width=445 />  -->
-<img src="plots/distribution_plots/gender_ethnic.png" height=410 width=80 /> 
+<img src="plots/distribution_plots/proportions.png" /> 
+
 
 It seen from the plots that our labels are very imbalanced (here we show only two examples but all the labels are imbalanced). It might lead to biased prediction towards the most popular class. To overcome this issue, we downsample the major classes.
 
@@ -162,10 +160,9 @@ Below are the confusion matrix and ROC curves of testing with ```Date of Birth``
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are identified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC curves and confusion matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are identified as 1990s. Why does our model more likely recognize 1990s people's quotations as from other people?
 
-As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
-
+In the next sections, we answer these questions by analysing reletions between different features.
 
 ## Data insights
 
