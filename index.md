@@ -101,9 +101,6 @@ We see  our features our classes are inbalanced which might lead to biased predi
 
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
 
-
-Pawel write about initial analisys, also we should mention that the classes was so imbalance and that we balanced them for the training but no tfor the validation and test sets. Put 1 exapmle about men and women differences (2 diagrams in 1 line and explanations) and 1 example of balanced and imbalanced data for 1 feature (again 2 diagrams in 1 line with explanations)
-
 ## Deep Learning Model
 
 <img align="right" src="assets/img/bertlogo.png" /> 
