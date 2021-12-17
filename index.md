@@ -22,38 +22,31 @@ td {
 ## Introduction
 
 Quotations, the repetition of well-known statement parts, have preserved and inherited wisdoms and perspectives 
-that significantly changed the world. And we not only focus on the power of the words, but also the people who speak 
+that significantly changed the world. We not only focus on the power of the words but also people who speak 
 them. There are lots of famous quotations that we can instantly identify the speakers. However, we can find a large 
 number of quotations whose speakers are unidentifiable. We may never know their names, but is that possible to find 
-other more details about their profiles? 
+other details about their profiles? 
 
 ![Mr_unknown](assets/img/unknown_speaking.png){: .mx-auto.d-block :}
 <!-- <img src="https://github.com/WeiSHI7/weishi7.github.io/blob/master/assets/img/unknown_speaking.png"> -->
 
-Our project, **DescribeByQuote**, aims to detect the profiles of the speakers from the quotations based on deep learning
-methods. While performing analysis of Quotebank data we found out that around **34%** of quotations don't have assigned 
-speakers to it (e.g., 1.8 million out of 5.2 million in file quotes-2020.json). Our goal is to answer the following question: if we cannot determine the exact author of a quotation, what other information can we get from it? We would like to achieve this by training the deep learning models that can help to classify with different features.
+Our project, **DescribeByQuote**, aims to detect the profiles of speakers from quotations based on deep learning
+methods. While performing analysis of Quotebank data we found out that around **34%** of quotations do not have assigned 
+speakers to it (e.g., 1.8 million out of 5.2 million in file quotes-2020.json). Our goal is to answer the following question: if we cannot determine the exact author of a quotation, what other information can we get from it? We would like to achieve this by training deep learning models that can predict different features of the person.
 
-In that work, first we would need to generate labels for our quotations, which requires extra information. Therefore, we extracted those additional information about known authors of the quotations by parsing their information from **Wikipedia**. Through filtering and parsing, we successfully extracted six important features of the speakers as the labels for the data, including ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```. 
+In this work, first we need to generate labels for our quotations which requires extra information. Therefore, we extracted additional information about known authors of the quotations by parsing their information from **Wikipedia**. Through filtering and parsing, we successfully extracted six important features of the speakers as the labels for the data, including ```Gender, Occupation, Nationality, Ethic group, Date of birth, and Religion```. 
 
-With the data and labels, we trained several models and verified the functionalities, then predicted the features of the 
-quotations that are not assigned speakers in Quotebank. Also, we did some analysis on the outcomes and explored the 
-relationships between different features, as well as tried to understand the mechanism of the prediction.
+With the data and labels, we trained six models that predicte the features of the quotations that are not assigned to speakers in Quotebank. Our method showed to ability to describe the person by using only its quotation. Also, we did analysis on the outcomes and explored the relationships between different features, as well as tried to understand the mechanism of the prediction. 
 
 ## Data
 
 ### Description
 
-Dataset provided to us is composed of six data files each one containing quotation data for one year from 2015 to 2020. In this dataset we had following fields: ``` quotation text, most probable author of the quote, date of publishing quotation, probabilities of quotation authors, links to the quotation source ```
+The dataset provided to us is composed of six data files. Each of them contains quotation data for one year from 2015 to 2020. In this dataset, we had the following fields: ``` quotation text, most probable author of the quote, date of publishing quotation, probabilities of quotation authors, links to the quotation source ```
 
-Additionally we were provided with parquet dataset, with data scraped from Wikipedia, containing these encoded field: ``` date of birth, nationality, gender, ethnic_group, occupation, party, academic_degree, id, candidacy, religion ```
+Additionally, we were provided with the parquet dataset, with data scraped from Wikipedia, containing these encoded fields: ``` date of birth, nationality, gender, ethnic_group, occupation, party, academic_degree, id, candidacy, religion ```
 
-
-To decode fields we used dataset with key value. Values have field name and short description.
-
-With the data and labels, we trained several models and verified the functionalities, then predicted the features of the 
-quotations that are not assigned speakers in Quotebank. Also, we did some analysis on the outcomes and explored the 
-relationships between different features, as well as tried to understand the mechanism of the prediction.
+To decode fields in the QuoteBank dataset we used descriptions matched by key values. Descriptions consist of field names and short descriptions.
 
 ### Preparation
 
@@ -63,7 +56,7 @@ We wrote our data in parquet format having short read/write time, ability to rea
 
 Therefore by parsing batch by batch we obtained new dataset containing 214M rows saved in parquet data folder.
 
-## Data analysis
+### Data analysis
 
 Before applying model to predict labels, for each label we created train, validation and test datasets. In these datasets there are records that have known speakers and known label which we will predict in the feature.
 
@@ -168,7 +161,7 @@ Below are the Confusion Matrix and ROC curves of testing with ```Date of Birth``
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in **1990s** gets the highest true positive rate and accuracy. Also, as shown in the **7th row** of the Matrix, most of people born in **1980s** are identified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are identified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
 
 As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
 
@@ -209,7 +202,7 @@ We assume especially for sports and style that they have specialist topics which
   </div>
 </div>
 
-Plotting topics mentioned by people born in 1990s (which are also authors of this post) and others give us some intersting insides about what people in there 20s talk the most. 
+Plotting topics mentioned by people born in 1990s (which are also  authors of this post) and others give us some intersting insides about what people in there 20s talk the most. 
 
 From topic distribution we see that these people are no interested in politics, situation in Europe, USA or local region. They are more into sports, music, olympic and style.
 This might be also due to fact that to enter politics you need time and experience. Also for example average age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
@@ -217,8 +210,8 @@ On the other hand peak performance for sportmans are in their 20s and 30s so it 
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" class="center" width=800  /> 
-    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" class="center" width=800  /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png"  /> 
   </div>
 </div>
 Topics distribution per year supports our conclusion about differences of topics in regard to year of birth. 
@@ -243,5 +236,6 @@ Gujarati people talk mostly about Asia and not that much about other topics. In 
 Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
 
 ## Conclusion
+
 
 In this project, we studied the quotaitons from ```QuoteBank``` with additional data from **Wikipedia**, and built up a deep learning pipeline to predict the profile of the speakers. For our expectation, it is very difficult to predict one's profile based on only several speaking words. However, as is shown in the results, our pipeline achieves good performance on some classes of the features (e.g., people born in **1990s** in ```Date of Birth```, **Gujarati people** and **Italian Argentines** in ```Ethnic Groups```, the rest is in the **Post Page** below). Also we kept investigated the relations of the different features, such as ```Date of Birth```, ```Ethnic Group``` and ```Topics```, and we found some really interesting outcomes that some features would share the same quotations. This could explain why our deep learning model would work like above. And of course, this project can be expanded more such as adding more features for analysis, or do more experiments to optimize the models. We leave this for the future work.
