@@ -95,23 +95,9 @@ For occupation we marged jobs in the same field as for example we marged basball
 In nationality we marged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
 
 ### Dealing with class imbalance
-<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  align="right" frameborder="0"> </iframe>
+<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
+<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
 We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
-
-bla
-
-bla
-
-We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution while keeping the same class distributions in the dataset.
-
-
-bla
-
-bla
-
-bla
-
-<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
 
 ## Deep Learning Model
 
@@ -205,9 +191,6 @@ We found out that our model distinguishes both men and women with the same accur
   </div>
 </div>
 
-From plot we might see that women and men are mostly cited in different topics. As politics is main topic for both of them other proporstions differ in regard to gender. 
-
-Female are mostly reviewing and writing about style. On the other hand man are more cited in areas of sport and Europe. This may lead to conlusion that different specialistic word help our model to predict better. We assume especially sports and style have specialistic topics which differ from others and therefore it might main factor allowng model to distinguish these two classes.
 
 
 
@@ -218,8 +201,6 @@ Female are mostly reviewing and writing about style. On the other hand man are m
     <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=410 width=450 frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
-
-
 
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
