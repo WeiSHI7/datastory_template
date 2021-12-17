@@ -103,6 +103,8 @@ In nationality we merged by continents and in other labels we took the 9 most po
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
 We see  our features our classes are unbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced distribution.
 
+**Remark** : we did our graph interactive.For  more information, please hover the cursor over the part you are interested in.
+
 ## Deep Learning Model
 
 <img align="right" src="assets/img/bertlogo.png" /> 
