@@ -27,7 +27,7 @@ them. There are lots of famous quotations that we can instantly identify the spe
 number of quotations whose speakers are unidentifiable. We may never know their names, but is that possible to find 
 other more details about their profiles? 
 
-![Mr_unknown](assets/img/mr_unknown_update.png){: .mx-auto.d-block :}
+![Mr_unknown](assets/img/unknown_speaking.png){: .mx-auto.d-block :}
 <!-- <img src="https://github.com/WeiSHI7/weishi7.github.io/blob/master/assets/img/unknown_speaking.png"> -->
 
 Our project, **DescribeByQuote**, aims to detect the profiles of the speakers from the quotations based on deep learning
@@ -96,11 +96,10 @@ In nationality we marged by continents and in other labels we took the 9 most po
 
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  align="right" frameborder="0"> </iframe>
-<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
-
-
-
 We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
+
+
+<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
 
 
 Pawel write about initial analisys, also we should mention that the classes was so imbalance and that we balanced them for the training but no tfor the validation and test sets. Put 1 exapmle about men and women differences (2 diagrams in 1 line and explanations) and 1 example of balanced and imbalanced data for 1 feature (again 2 diagrams in 1 line with explanations)
@@ -168,9 +167,9 @@ Below are the Confusion Matrix and ROC curves of testing with ```Date of Birth``
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in **1990s** gets the highest true positive rate and accuracy. Also, as shown in the **7th row** of the Matrix, most of people born in **1980s** are indentified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are indentified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
 
-As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions, which will be shown in following sections.
+As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
 
 
 ## Data insights
@@ -192,8 +191,8 @@ We found out that our model distinguishes both men and women with the same accur
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/gender/gender_female.html" height=400 width=445  frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/gender/gender_male.html"  height=400 width=445  frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/gender/gender_female.html" height=410 width=450  frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/gender/gender_male.html"  height=410 width=450  frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
 
@@ -203,17 +202,17 @@ We found out that our model distinguishes both men and women with the same accur
 #### Date of birth
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html" height=400 width=445  frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=400 width=445 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html" height=410 width=450  frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=410 width=450 frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
 
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=400 width=445 frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=400 width=445 frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=400 width=890 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=410 width=450 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=410 width=450 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=900 frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
 
