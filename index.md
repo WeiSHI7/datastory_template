@@ -162,10 +162,9 @@ Below are the confusion matrix and ROC curves of testing with ```Date of Birth``
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are identified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC curves and confusion matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are identified as 1990s. Why does our model more likely recognize 1990s people's quotations as from other people?
 
-As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
-
+In the next sections, we answer these questions by analysing reletions between different features.
 
 ## Data insights
 
