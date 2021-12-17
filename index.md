@@ -226,6 +226,10 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
   </div>
 </div>
 
+Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better then others.
+
+Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
+
 ## Conclusion
 
 
