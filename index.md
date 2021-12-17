@@ -203,6 +203,12 @@ We assume especially for sports and style that they have specialistic topics whi
   </div>
 </div>
 
+Plotting topics mentioned by people born in 1990s (which are also  authors of this post) and others give us some intersting insides about what people in there 20s talk the most. 
+
+From topic distribution we see that these people are no interested in politics, sytuation in Europe, USA or local region. They are more into sports, music, olimpic and style.
+This might be also due to fact that to enter politcs you need time and experience. Also for example avarage age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
+On the other hand peak performace for sportmans are in their 20s and 30s so it is understable that this is the topic where they are the most respected.
+
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
