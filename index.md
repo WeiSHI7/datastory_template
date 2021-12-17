@@ -209,6 +209,8 @@ From topic distribution we see that these people are no interested in politics, 
 This might be also due to fact that to enter politcs you need time and experience. Also for example avarage age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
 On the other hand peak performace for sportmans are in their 20s and 30s so it is understable that this is the topic where they are the most respected.
 
+<img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" /> 
+
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
