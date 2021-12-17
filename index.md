@@ -198,8 +198,8 @@ We assume especially for sports and style that they have specialistic topics whi
 #### Date of birth
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html"  frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
   </div>
 </div>
 
