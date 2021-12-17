@@ -191,7 +191,9 @@ We found out that our model distinguishes both men and women with the same accur
   </div>
 </div>
 
-
+Female are mostly reviewing and writing about style.
+On the other hand man are more cited in areas of sport and Europe. This may lead to conlusion that different specialistic word help our model to predict better.
+We assume especially for sports and style that they have specialistic topics which differ from others and therefore it might main factor allowng model to distinguish between these two classes.
 
 
 #### Date of birth
