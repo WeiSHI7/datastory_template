@@ -220,9 +220,9 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=900 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=410 width=445 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=410 width=445 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=890 frameborder="0" scrolling="no"> </iframe>
   </div>
 </div>
 
