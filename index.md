@@ -166,14 +166,14 @@ In the next sections, we answer these questions by analysing reletions between d
 
 ## Data insights
 
-During evaluating our model we noticed that some classes detected better than others. This fact prompted us to delve deeper into the data research in search of some insiders who most likely help our models classify the desired class.
+During evaluation our model we noticed that some classes are detected better than others. This fact prompted us to delve deeper into search of insights what most likely help our models to classify the desired class.
 
-We assumed that perhaps the same groups of people prefer similar topics for conversation, which may encourage our model to classify quotes into the classes we need. But to test this hypothesis, we need to understand the context of the quote. We noticed that in 2019, the source of 83% of citations is the New York Times. In the remaining years, NY also occupies a leading position in the list of sources of quotations. The peculiarity of NY is that there is a topic in the link to the quote, to which NY equated this quote. This fact helped us to find out the context of most of the quotes.
+We assumed that the same groups of people prefer similar topics for conversation, which may encourage our model to classify quotes into the classes we need. But to test this hypothesis, we need to understand the context of the quote. We noticed that in 2019, the source of 83% of citations is the New York Times. In the remaining years, NY also occupies a leading position in the list of sources of quotations. The peculiarity of NY is that there is a topic in the link to the quote, to which NY equated this quote. This fact helped us to find out the context of most of the quotes.
 
 ### Data preparation
 
-For every feature as gender, occupation, etc. we selected quotes with New York Times source. For every such quote we extracted topic from  quotes link and (because sometimes links don't fit the format we expect ) we dropped all topics with total amount less than 400.
-As a result for every feature we collected dataset with quotes topics.
+For every feature as gender, occupation, etc. we selected quotes with New York Times source. For every quote we extracted a topic from quote links and (because sometimes links don't fit the format we expect ) we dropped all topics with total amount less than 400.
+As a result for every feature we collected dataset with quote topics.
 
 ### Data analysis
 
@@ -190,9 +190,7 @@ We found out that our model distinguishes both men and women with the same accur
   </div>
 </div>
 
-Female are mostly reviewing and writing about style.
-On the other hand man are more cited in areas of sport and Europe. This may lead to conclusion that different specialistic word help our model to predict better.
-We assume especially for sports and style that they have specialist topics which differ from others and therefore it might main factor allowng model to distinguish between these two classes.
+Despite the politics, women are mostly speak about review and style topics. On the other hand men are more cited in areas of sport and Europe. This may lead to a conclusion that different special word help our model to predict better. We assume especially for sports and style that they have special topics which differ from others and therefore it might be the main factor allowing our model to distinguish between these two classes.
 
 #### Date of birth
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
@@ -202,11 +200,11 @@ We assume especially for sports and style that they have specialist topics which
   </div>
 </div>
 
-Plotting topics mentioned by people born in 1990s (which are also  authors of this post) and others give us some intersting insides about what people in there 20s talk the most. 
+Plotting topics mentioned by people born in 1990s (which authors of this site belong to) and others give us intersting insights about what people in their 20s talk the most. 
 
-From topic distribution we see that these people are no interested in politics, situation in Europe, USA or local region. They are more into sports, music, olympic and style.
-This might be also due to fact that to enter politics you need time and experience. Also for example average age of senators in USA congress is 61, so we see that there is no much place for young people in politics.
-On the other hand peak performance for sportmans are in their 20s and 30s so it is understable that this is the topic where they are the most respected.
+From topic distribution we see that these people are not interested in politics, situation in Europe, the USA or local region. They are more into sports, music, olympic and style.
+This might be also due to fact that to enter politics you need time and experience. Also, for example, average age of senators in the USA congress is 61, thus we see that there is no much place for young people in politics.
+On the other hand, peak performance of sportmen is in their 20s and 30s and it is understable that this is the topic where they are the most respected.
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
@@ -234,6 +232,13 @@ And for politicians when they are active publically it is more probable to by ci
 Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better than others.
 
 Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
+
+#### Year of publication
+<div class="row align-items-center no-gutters  mb-4 mb-lg-5">
+  <div class="col-sm">
+    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" class="center" width=800  /> 
+  </div>
+</div>
 
 ## Conclusion
 
