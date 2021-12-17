@@ -27,7 +27,7 @@ them. There are lots of famous quotations that we can instantly identify the spe
 number of quotations whose speakers are unidentifiable. We may never know their names, but is that possible to find 
 other more details about their profiles? 
 
-![Mr_unknown](assets/img/unknown_speaking.png){: .mx-auto.d-block :}
+![Mr_unknown](assets/img/mr_unknown_update.png){: .mx-auto.d-block :}
 <!-- <img src="https://github.com/WeiSHI7/weishi7.github.io/blob/master/assets/img/unknown_speaking.png"> -->
 
 Our project, **DescribeByQuote**, aims to detect the profiles of the speakers from the quotations based on deep learning
@@ -168,9 +168,9 @@ Below are the Confusion Matrix and ROC curves of testing with ```Date of Birth``
 
 ![all_date](plots/all_date.png){: .mx-auto.d-block :}
 
-As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in 1990s gets the highest true positive rate and accuracy. Also, as shown in the 7th rows of the Matrix, most of people born in 1980s are indentified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
+As we can see from ROC-AUC curves and Confusion Matrix, quotations of the people born in **1990s** gets the highest true positive rate and accuracy. Also, as shown in the **7th row** of the Matrix, most of people born in **1980s** are indentified as 1990s. Why our model more likely recognizes 1980s people's quotations as from people born in 1990s?
 
-As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions.
+As we keep analyzing the distribution of our data, we found some relations between different features. We believe these relations could answer the questions, which will be shown in following sections.
 
 
 ## Data insights
