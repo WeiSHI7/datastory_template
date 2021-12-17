@@ -212,8 +212,8 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" /> 
-    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" height=410 width=450 /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" height=410 width=450 /> 
   </div>
 </div>
 
