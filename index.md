@@ -198,8 +198,8 @@ We assume especially for sports and style that they have specialistic topics whi
 #### Date of birth
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html"  frameborder="0" scrolling="no"> </iframe>
-    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_1990x.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
+    <iframe src="plots/distribution_plots/years/date_of_birth_other.html" height=410 width=450 frameborder="0" scrolling="no"> </iframe>
   </div>
 </div>
 
@@ -225,6 +225,10 @@ On the other hand peak performace for sportmans are in their 20s and 30s so it i
     <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=410 width=900 frameborder="0" scrolling="no"> </iframe>
   </div>
 </div>
+
+Gujarati people talk mostly about Asia and not that much about other topics. In this quotes there are many distinguish names as names of the people or cities. This might be the clue why our model predicts them better then others.
+
+Contrarily the Italian Argentines talk mostyl about europe, which is not that differnet then topics in which other ethincs groups talk. n this case there might be other factor that has more strong influeance to the prediction.
 
 ## Conclusion
 
