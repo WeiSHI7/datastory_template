@@ -44,25 +44,26 @@ relationships between different features, as well as tried to understand the mec
 
 ### Description
 
-Dataset provided to us is composed of six datafiles each one containg qutation data for one year from 2015 to 2020. In this dataset we had following fields: ``` quote ID, quotation text, most probable author of the quote, date of publishing quotation, ID of entry in other dataset provided by ADA's TAs, number of quotation occurances, probabilities of quotation authors, links to the quotation source ```
+Dataset provided to us is composed of six datafiles each one containg qutation data for one year from 2015 to 2020. In this dataset we had following fields: ``` quotation text, most probable author of the quote, date of publishing quotation, probabilities of quotation authors, links to the quotation source ```
 
 Additionaly we were provided with parquet dataset, with data scrapped from Wikipedia, containing these encoded field: ``` date of birth, nationality, gender, ethnic_group, occupation, party, academic_degree, id, candidacy, religion ```
 
-And to decode fields we used dataset with key value. Value have field name and short description.
+
+To decode fields we used dataset with key value. Values have field name and short description.
 
 ### Preparation
 
-We decided to start our data preparation with parsing quotation dataset with additial data from Wikipedia and decode all fields to the full names. In data set there were also multiple information from people having the same name but multiple Wikipedia entries. We decided to "explode" this entries and save one row per Wikipedia entry.
+We decided to start our data preparation with parsing quotation dataset with additial data from Wikipedia and decode all fields from shortucts to the full names. In dataset there were also multiple information about people having the same name but multiple Wikipedia pages. We decided to "explode" this records and save one row per Wikipedia page.
 
-We saved data in parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or only rows which will meet desired conditions. Also there is possiblity to in the feautre easly connect big data engins as for example Spark. 
+We wrote our data in parquet format having short read/write time, ability to read dataset consisting of data scattered through multiple files and reading cartain columns or rows which will meet desired conditions. Also there is possiblity to connect in the feautre with big data engins as for example Spark.
 
-Therfore by parsing batch by batch we obtained new dataset containing 214 207 286 rows saved in parquet data folder.
+Therfore by parsing batch by batch we obtained new dataset containing 214M rows saved in parquet data folder.
 
 ## Data analysis
 
-Before appling model to predict labels we created for each label we created train, validation and test datasets. In these datasets are records that have known speakers and known label which we will predict int the feature.
+Before appling model to predict labels, for each label we created train, validation and test datasets. In these datasets there are records that have known speakers and known label which we will predict in the feature.
 
-For appling model to predict labels we wanted to choose only labels which might be applicable to almost all people. In the result we choose date of birth, nationality, gendr, ethnic group, occupation and party. 
+Before appling model to predict labels we wanted to choose only labels which might be applicable to almost all people. In the result we choose date of birth, nationality, gender, ethnic group, religion and occupation.
 
 To simplify our tasks, and obtain better model predictions, in each feature we are taking the few most popular classes as seen in the table below.
 
@@ -89,9 +90,18 @@ To simplify our tasks, and obtain better model predictions, in each feature we a
 
 The date of birth which is continous variable we descretize into new clases in dacade sized buckets from 1930s to 1990s and having one more class for others.
 
-### Dealing with class imbalance
+For occupation we marged jobs in the same field as for example we marged basball player, hokey player and others into new class sportsman. 
 
-We see TODO (Katya) our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
+In nationality we marged by continents and in other labels we took the 9 most popular classes and other examples we put in "other" bin.
+
+### Dealing with class imbalance
+<iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  align="right" frameborder="0"> </iframe>
+<iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  align="right" frameborder="0"> </iframe>
+
+
+
+We see  our features our classes are inbalanced which might lead to biased prediction towards the most popular class. As we have significant amount of data we randomly choose only subset on it obtaining more balanced dystibution.
+
 
 Pawel write about initial analisys, also we should mention that the classes was so imbalance and that we balanced them for the training but no tfor the validation and test sets. Put 1 exapmle about men and women differences (2 diagrams in 1 line and explanations) and 1 example of balanced and imbalanced data for 1 feature (again 2 diagrams in 1 line with explanations)
 
@@ -201,9 +211,9 @@ We found out that our model distinguishes both men and women with the same accur
 #### Ethnic group
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=400 width=350 frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=400 width=350 frameborder="0" scrolling="yes"> </iframe>
-    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=400 width=700 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Gujarati people.html" height=400 width=445 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_Italian Argentines.html" height=400 width=445 frameborder="0" scrolling="yes"> </iframe>
+    <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_other.html" height=400 width=890 frameborder="0" scrolling="yes"> </iframe>
   </div>
 </div>
 
