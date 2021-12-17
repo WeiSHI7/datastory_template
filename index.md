@@ -94,6 +94,10 @@ We merged ```nationality``` by continents into five classes. In other labels we 
 ### Dealing with class imbalance
 <iframe src="plots/distribution_plots/gender/gender_proportion.html" height=450 width=445  frameborder="0"> </iframe>
 <iframe src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.html"  height=450 width=445  frameborder="0"> </iframe>
+
+<img src="plots/distribution_plots/gender/gender_proportion.png" /> 
+<img src="plots/distribution_plots/ethnic_group/ethnic_group_proportion.png" /> 
+
 It seen from the plots that our labels are very imbalanced (here we show only two examples but all the labels are imbalanced). It might lead to biased prediction towards the most popular class. To overcome this issue, we downsample the major classes.
 
 ## Deep Learning Model
