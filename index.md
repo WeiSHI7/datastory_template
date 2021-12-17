@@ -217,8 +217,8 @@ On the other hand peak performance for sportmans are in their 20s and 30s so it 
 
 <div class="row align-items-center no-gutters  mb-4 mb-lg-5">
   <div class="col-sm">
-    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" align="center" width=800  /> 
-    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" align="center" width=800  /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_year_of_birth.png" class="center" width=800  /> 
+    <img src="plots/distribution_plots/years/topics_distr_per_publication_year.png" class="center" width=800  /> 
   </div>
 </div>
 Topics distribution per year supports our conclusion about differences of topics in regard to year of birth. 
